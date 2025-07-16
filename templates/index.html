@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ad Sales Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Advertisement Sales Predictor</h1>
+
+        <form action="/predict" method="POST">
+            <label for="tv">TV Advertisement Budget</label>
+            <input type="number" step="0.01" name="tv" required>
+
+            <label for="radio">Radio Advertisement Budget</label>
+            <input type="number" step="0.01" name="radio" required>
+
+            <label for="newspaper">Newspaper Advertisement Budget</label>
+            <input type="number" step="0.01" name="newspaper" required>
+
+            <input type="submit" value="Predict Sales">
+        </form>
+
+        {% if prediction_text %}
+            <p class="result">{{ prediction_text }}</p>
+        {% endif %}
+
+        <div class="footer-box">
+            Turning data into decisions,by — <strong>Snehal </strong>
+        </div>
+    </div>
+</body>
+</html>
